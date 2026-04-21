@@ -63,6 +63,430 @@
         }
         .project_title .clip { flex-shrink: 0; }
         .project_link { white-space: nowrap; }
+
+        /* ================================================================ */
+        /*   BALCONY UPGRADE SYSTEM — editorial, modular, on-brand           */
+        /* ================================================================ */
+        :root {
+            --sys-ink: #0e0e0e;
+            --sys-ink-2: #2a2a28;
+            --sys-muted: #6f6a60;
+            --sys-line: rgba(14, 14, 14, 0.12);
+            --sys-line-soft: rgba(14, 14, 14, 0.07);
+            --sys-paper: #fbf9f5;
+            --sys-paper-2: #f4f0e8;
+            --sys-terracotta: #b8593a;
+            --sys-moss: #6a7a4e;
+            --sys-sand: #b89268;
+            --sys-slate: #4f5c6a;
+            --sys-clay: #8c4a34;
+            --sys-stone: #7a7267;
+            --sys-midnight: #14202a;
+        }
+        .section_system {
+            background-color: var(--sys-paper);
+            color: var(--sys-ink);
+            position: relative;
+            overflow: hidden;
+        }
+        .section_system::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 1px;
+            background: var(--sys-line-soft);
+        }
+        .system_intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+            gap: 3.5rem;
+            align-items: end;
+        }
+        .system_intro h2 {
+            font-family: "Geist", "Montserrat", system-ui, sans-serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            font-size: clamp(2.1rem, 4.2vw, 3.6rem);
+            line-height: 1.05;
+            margin: 0;
+            color: var(--sys-ink);
+        }
+        .system_intro h2 em {
+            font-style: italic;
+            color: var(--sys-clay);
+            font-weight: 400;
+        }
+        .system_kicker {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sys-muted);
+            margin-bottom: 1rem;
+        }
+        .system_lede {
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: var(--sys-ink-2);
+            max-width: 34rem;
+        }
+
+        /* Mood strip: three editorial images, asymmetric */
+        .system_mood {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1.2fr;
+            gap: 1rem;
+            margin-top: 3.5rem;
+        }
+        .system_mood_tile {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #ddd;
+        }
+        .system_mood_tile.is-wide { aspect-ratio: 4 / 5; }
+        .system_mood_tile.is-hero { aspect-ratio: 16 / 11; grid-column: span 1; }
+        .system_mood_tile img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 900ms cubic-bezier(0.2, 0.7, 0.1, 1);
+        }
+        .system_mood_tile:hover img { transform: scale(1.04); }
+        .system_mood_tile figcaption {
+            position: absolute;
+            left: 1rem; bottom: 0.9rem;
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+        }
+        .system_mood_tile figcaption span {
+            display: block;
+            font-family: "Geist", serif;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+            text-transform: none;
+            margin-top: 0.2rem;
+            font-weight: 500;
+        }
+
+        /* Section headings inside system */
+        .system_subhead {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--sys-line);
+        }
+        .system_subhead h3 {
+            font-family: "Geist", serif;
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            font-size: clamp(1.5rem, 2.4vw, 2rem);
+            margin: 0;
+            color: var(--sys-ink);
+        }
+        .system_subhead_note {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sys-muted);
+        }
+        .system_block { margin-top: 5rem; }
+
+        /* Packages grid */
+        .pkg_grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+        .pkg_card {
+            --pkg-accent: var(--sys-slate);
+            background: #fff;
+            border: 1px solid var(--sys-line);
+            padding: 1.75rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 22rem;
+            position: relative;
+            transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+        }
+        .pkg_card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 40px -20px rgba(14,14,14,0.18);
+            border-color: rgba(14,14,14,0.22);
+        }
+        .pkg_card.is-essential  { --pkg-accent: var(--sys-moss); }
+        .pkg_card.is-safetycomfort { --pkg-accent: var(--sys-sand); }
+        .pkg_card.is-weatherflex  { --pkg-accent: var(--sys-slate); }
+        .pkg_card.is-utility      { --pkg-accent: var(--sys-stone); }
+        .pkg_card.is-allweather   { --pkg-accent: var(--sys-terracotta); }
+        .pkg_card.is-pro          { --pkg-accent: var(--sys-clay); }
+        .pkg_card.is-max {
+            --pkg-accent: #d9c59a;
+            background: var(--sys-midnight);
+            color: #f3ede0;
+            border-color: var(--sys-midnight);
+            grid-column: span 1;
+        }
+        .pkg_card.is-max .pkg_sku_line { color: #c9c2b5; }
+        .pkg_card.is-max .pkg_price_band { color: #d9c59a; }
+        .pkg_card.is-max .pkg_meta_label { color: #8b8578; }
+        .pkg_card.is-max .pkg_rule { background: rgba(255,255,255,0.12); }
+        .pkg_card.is-max:hover { box-shadow: 0 14px 40px -20px rgba(0,0,0,0.5); }
+
+        .pkg_tag {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.5rem;
+            border: 1px solid currentColor;
+            color: var(--pkg-accent);
+        }
+        .pkg_card.is-max .pkg_tag { color: #d9c59a; border-color: #d9c59a; }
+
+        .pkg_accent_bar {
+            width: 2.5rem;
+            height: 2px;
+            background: var(--pkg-accent);
+            margin-bottom: 1.1rem;
+        }
+        .pkg_meta_label {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--sys-muted);
+            margin-bottom: 0.4rem;
+        }
+        .pkg_name {
+            font-family: "Geist", serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.15;
+            margin: 0 0 0.75rem;
+        }
+        .pkg_price_band {
+            font-family: "Geist", serif;
+            font-size: 1.55rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: var(--pkg-accent);
+            margin-bottom: 1.25rem;
+        }
+        .pkg_price_band small {
+            display: inline-block;
+            margin-left: 0.4rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sys-muted);
+            vertical-align: middle;
+        }
+        .pkg_card.is-max .pkg_price_band small { color: #8b8578; }
+        .pkg_rule {
+            height: 1px;
+            background: var(--sys-line);
+            margin: 0 0 1.1rem;
+        }
+        .pkg_sku_list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            flex-grow: 1;
+        }
+        .pkg_sku_line {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            color: var(--sys-ink-2);
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+        .pkg_sku_line::before {
+            content: "";
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--pkg-accent);
+            margin-top: 0.55rem;
+            flex: none;
+        }
+        .pkg_sku_line.is-soon {
+            opacity: 0.55;
+            font-style: italic;
+        }
+        .pkg_footer_link {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--pkg-accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-top: 1px solid var(--sys-line);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        .pkg_card.is-max .pkg_footer_link { border-top-color: rgba(255,255,255,0.12); }
+        .pkg_footer_link::after {
+            content: "→";
+            transition: transform 220ms ease;
+        }
+        .pkg_footer_link:hover::after { transform: translateX(4px); }
+
+        /* SKU modules grid — uses gap+bg trick so trailing borders never dangle */
+        .sku_grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--sys-line);
+            border: 1px solid var(--sys-line);
+        }
+        .sku_tile {
+            padding: 1.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            min-height: 11rem;
+            background: #fff;
+            position: relative;
+            transition: background-color 260ms ease;
+        }
+        .sku_tile:hover { background: var(--sys-paper-2); }
+        .sku_index {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            color: var(--sys-muted);
+        }
+        .sku_icon {
+            width: 32px; height: 32px;
+            color: var(--sys-ink);
+            flex: none;
+        }
+        .sku_icon svg { width: 100%; height: 100%; display: block; stroke: currentColor; fill: none; }
+        .sku_name {
+            font-family: "Geist", serif;
+            font-size: 1.02rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: var(--sys-ink);
+            margin: 0;
+        }
+        .sku_note {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.8rem;
+            color: var(--sys-muted);
+            line-height: 1.45;
+            margin-top: auto;
+        }
+        .sku_soon {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.58rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sys-muted);
+            background: var(--sys-paper-2);
+            padding: 0.25rem 0.4rem;
+            border-radius: 2px;
+        }
+        .sku_tile.is-soon .sku_name,
+        .sku_tile.is-soon .sku_icon { opacity: 0.5; }
+
+        /* Add-ons strip — same gap+bg technique */
+        .addon_list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--sys-line);
+            border: 1px solid var(--sys-line);
+        }
+        .addon_row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1.1rem 1.25rem;
+            background: var(--sys-paper);
+            transition: background-color 200ms ease;
+        }
+        .addon_row:hover { background: #fff; }
+        .addon_name {
+            font-family: "Geist", serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--sys-ink);
+        }
+        .addon_price {
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--sys-clay);
+            white-space: nowrap;
+        }
+
+        /* Footer CTA */
+        .system_outro {
+            margin-top: 4.5rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 2rem;
+            align-items: center;
+            padding: 2.25rem 2.5rem;
+            background: var(--sys-midnight);
+            color: #f3ede0;
+        }
+        .system_outro h3 {
+            font-family: "Geist", serif;
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            line-height: 1.2;
+            margin: 0;
+            max-width: 34rem;
+        }
+        .system_outro h3 em { color: #d9c59a; font-style: italic; }
+        .system_outro .button { border-color: #d9c59a; }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .system_intro { grid-template-columns: 1fr; gap: 1.5rem; }
+            .system_mood { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+            .system_mood_tile.is-hero { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+            .pkg_grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .sku_grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .addon_list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .system_outro { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+        }
+        @media (max-width: 640px) {
+            .system_mood { grid-template-columns: 1fr; }
+            .system_mood_tile { aspect-ratio: 16 / 10; }
+            .pkg_grid { grid-template-columns: 1fr; }
+            .sku_grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .addon_list { grid-template-columns: 1fr; }
+            .system_subhead { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
     </style>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
@@ -98,6 +522,7 @@
                                     <a href="/" class="nav_links w-nav-link w--current" aria-current="page">Home</a>
                                     <a href="/about" class="nav_links w-nav-link">About</a>
                                     <a href="/services" class="nav_links w-nav-link">Services</a>
+                                    <a href="#system" class="nav_links w-nav-link">System</a>
                                     <a href="/projects" class="nav_links w-nav-link">Projects</a>
                                     <a href="/blogs/blog-v1" class="nav_links w-nav-link">Journal</a>
                                     <a href="/contact" class="nav_links w-nav-link">Contact</a>
@@ -626,13 +1051,320 @@ a,
             </div>
             <div class="padding-section-small"></div>
         </section>
+        <section id="system" class="section_system">
+            <div class="padding-section-small"></div>
+            <div class="padding-global">
+                <div class="container-large">
+                    <!-- Intro -->
+                    <div class="system_intro">
+                        <div>
+                            <div class="heading_number scroll-into-view">
+                                <div class="text-6xl">04</div>
+                                <div>System</div>
+                            </div>
+                            <div class="spacer">
+                                <div STYLE="height:1.25rem" class="spacer-desktop"></div>
+                                <div STYLE="height:1.25rem" class="spacer-tablet"></div>
+                                <div STYLE="height:1rem" class="spacer-mobile"></div>
+                            </div>
+                            <div class="system_kicker">The Balcony Upgrade System</div>
+                            <p class="system_lede">Modular upgrades engineered for Indian balconies — safety, weather, comfort and utility as <em>composable modules.</em> Pick a ready-made package, or stitch your own from fourteen rated SKUs.</p>
+                        </div>
+                        <div>
+                            <h2 class="scroll-into-view">Three pressures.<br/>One modular <em>system.</em></h2>
+                        </div>
+                    </div>
+
+                    <!-- Mood strip -->
+                    <div class="system_mood">
+                        <figure class="system_mood_tile is-hero img-appear">
+                            <img src="assets/images/system-hero.jpg" loading="lazy" alt="Upgraded balcony at golden hour with invisible grill, roll-down sheet and warm lighting." />
+                            <figcaption>The complete balcony<span>Every module, styled together</span></figcaption>
+                        </figure>
+                        <figure class="system_mood_tile img-appear">
+                            <img src="assets/images/system-grill.jpg" loading="lazy" alt="Close detail of an invisible stainless cable grill against a soft city skyline." />
+                            <figcaption>Safety, invisible<span>Invisible grill &amp; pigeon net</span></figcaption>
+                        </figure>
+                        <figure class="system_mood_tile img-appear">
+                            <img src="assets/images/system-allweather.jpg" loading="lazy" alt="Balcony in a gentle monsoon shower, protected by fixed rain shade and partially-lowered roll-down sheet." />
+                            <figcaption>Weather-ready<span>Rain shade &amp; roll-down</span></figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- Packages -->
+                    <div class="system_block">
+                        <div class="system_subhead">
+                            <h3>Ready-made packages</h3>
+                            <div class="system_subhead_note">Seven tiers &middot; priced bands</div>
+                        </div>
+                        <div class="pkg_grid">
+                            <!-- 01 Essential Safety -->
+                            <article class="pkg_card is-essential scroll-into-view">
+                                <div class="pkg_tag">Start here</div>
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">01 / Essential</div>
+                                <h4 class="pkg_name">Essential Safety</h4>
+                                <div class="pkg_price_band">₹20K–₹25K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Invisible Grill</li>
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Start with safety</a>
+                            </article>
+
+                            <!-- 02 Safety + Comfort -->
+                            <article class="pkg_card is-safetycomfort scroll-into-view">
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">02 / Comfort</div>
+                                <h4 class="pkg_name">Safety + Comfort</h4>
+                                <div class="pkg_price_band">₹30K–₹38K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Invisible Grill</li>
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                    <li class="pkg_sku_line">Sliding Mosquito Net</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Add everyday comfort</a>
+                            </article>
+
+                            <!-- 03 Weather Flex -->
+                            <article class="pkg_card is-weatherflex scroll-into-view">
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">03 / Weather</div>
+                                <h4 class="pkg_name">Weather Flex</h4>
+                                <div class="pkg_price_band">₹35K–₹50K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                    <li class="pkg_sku_line">Sliding Mosquito Net</li>
+                                    <li class="pkg_sku_line">Retractable Roll-Down Sheet (Manual)</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Flex for rain &amp; sun</a>
+                            </article>
+
+                            <!-- 04 Utility Balcony -->
+                            <article class="pkg_card is-utility scroll-into-view">
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">04 / Utility</div>
+                                <h4 class="pkg_name">Utility Balcony</h4>
+                                <div class="pkg_price_band">₹25K–₹32K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Foldable Drying Rack</li>
+                                    <li class="pkg_sku_line">Sliding Mosquito Net</li>
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Put it to work</a>
+                            </article>
+
+                            <!-- 05 All-Weather Balcony -->
+                            <article class="pkg_card is-allweather scroll-into-view">
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">05 / All-Weather</div>
+                                <h4 class="pkg_name">All-Weather Balcony</h4>
+                                <div class="pkg_price_band">₹45K–₹60K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Fixed Rain Shade</li>
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                    <li class="pkg_sku_line">Basic Lighting</li>
+                                    <li class="pkg_sku_line is-soon">Deck Flooring — Coming Soon</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Use it rain or shine</a>
+                            </article>
+
+                            <!-- 06 All-Weather Pro -->
+                            <article class="pkg_card is-pro scroll-into-view">
+                                <div class="pkg_tag">Popular</div>
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">06 / Pro</div>
+                                <h4 class="pkg_name">All-Weather Pro</h4>
+                                <div class="pkg_price_band">₹60K–₹80K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Invisible Grill</li>
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                    <li class="pkg_sku_line">Retractable Roll-Down Sheet</li>
+                                    <li class="pkg_sku_line">Fixed Rain Shade</li>
+                                    <li class="pkg_sku_line is-soon">Deck Flooring — Coming Soon</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Go full spec</a>
+                            </article>
+
+                            <!-- 07 All-Weather Max -->
+                            <article class="pkg_card is-max scroll-into-view">
+                                <div class="pkg_tag">Most complete</div>
+                                <div class="pkg_accent_bar"></div>
+                                <div class="pkg_meta_label">07 / Max</div>
+                                <h4 class="pkg_name">All-Weather Max</h4>
+                                <div class="pkg_price_band">₹65K–₹90K<small>installed</small></div>
+                                <div class="pkg_rule"></div>
+                                <ul class="pkg_sku_list">
+                                    <li class="pkg_sku_line">Invisible Grill</li>
+                                    <li class="pkg_sku_line">Pigeon Protection Net</li>
+                                    <li class="pkg_sku_line">Sliding Mosquito Net</li>
+                                    <li class="pkg_sku_line">Retractable Roll-Down Sheet</li>
+                                    <li class="pkg_sku_line">Fixed Rain Shade</li>
+                                    <li class="pkg_sku_line is-soon">Deck Flooring — Coming Soon</li>
+                                    <li class="pkg_sku_line is-soon">Planters — Coming Soon</li>
+                                </ul>
+                                <a href="/contact" class="pkg_footer_link">Specify the flagship</a>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- SKU Modules -->
+                    <div class="system_block">
+                        <div class="system_subhead">
+                            <h3>The fourteen modules</h3>
+                            <div class="system_subhead_note">Mix &amp; match to build your own</div>
+                        </div>
+                        <div class="sku_grid">
+                            <article class="sku_tile">
+                                <div class="sku_index">01</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 4h24v24H4z"/><path d="M8 4v24M12 4v24M16 4v24M20 4v24M24 4v24"/></svg></div>
+                                <h4 class="sku_name">Invisible Grill System</h4>
+                                <div class="sku_note">Nylon-coated 316 SS cables — child-safe, view-first.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">02</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 4h24v24H4z"/><path d="M4 10h24M4 16h24M4 22h24M10 4v24M16 4v24M22 4v24"/></svg></div>
+                                <h4 class="sku_name">Pigeon Protection Net</h4>
+                                <div class="sku_note">UV-stable HDPE, invisible from six feet out.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">03</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 5h24v22H4z"/><path d="M16 5v22M4 9h12M4 13h12M4 17h12M4 21h12M20 9h8M20 13h8M20 17h8M20 21h8"/></svg></div>
+                                <h4 class="sku_name">Sliding Mosquito Net</h4>
+                                <div class="sku_note">Slim aluminium frame, fibreglass mesh, double-track.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">04</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><rect x="6" y="4" width="20" height="4"/><path d="M8 8v14M24 8v14M12 22l4 4 4-4"/></svg></div>
+                                <h4 class="sku_name">Roll-Down Sheet — Manual</h4>
+                                <div class="sku_note">PVC mesh, rain &amp; glare filter, crank-operated.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">05</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><rect x="6" y="4" width="20" height="4"/><path d="M8 8v14M24 8v14M10 16h12"/><circle cx="16" cy="28" r="1.5" fill="currentColor"/></svg></div>
+                                <h4 class="sku_name">Roll-Down Sheet — Motorised</h4>
+                                <div class="sku_note">Remote + wall switch, quiet tubular motor.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">06</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 12l12-6 12 6"/><path d="M4 12v4h24v-4"/><path d="M6 20v8h20v-8"/></svg></div>
+                                <h4 class="sku_name">Fixed Rain Shade</h4>
+                                <div class="sku_note">Polycarbonate or GI sheet, structural bracket-mounted.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">07</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 10h24M4 16h24M4 22h24"/><path d="M8 6v4M16 6v4M24 6v4"/></svg></div>
+                                <h4 class="sku_name">Foldable Drying Rack</h4>
+                                <div class="sku_note">Wall-fold or ceiling-pulley, 15–25kg load.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">08</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><rect x="5" y="5" width="22" height="22"/><path d="M5 16h22M16 5v22"/><circle cx="11" cy="11" r="0.8" fill="currentColor"/><circle cx="21" cy="11" r="0.8" fill="currentColor"/></svg></div>
+                                <h4 class="sku_name">Storage Cabinet</h4>
+                                <div class="sku_note">Marine-ply or HDPE, weather-sealed hinges.</div>
+                            </article>
+                            <article class="sku_tile is-soon">
+                                <div class="sku_soon">Coming soon</div>
+                                <div class="sku_index">09</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 4h8v8H4zM12 4h8v8h-8zM20 4h8v8h-8zM4 12h8v8H4zM12 12h8v8h-8zM20 12h8v8h-8zM4 20h8v8H4zM12 20h8v8h-8zM20 20h8v8h-8z"/></svg></div>
+                                <h4 class="sku_name">Deck Flooring Tiles</h4>
+                                <div class="sku_note">Interlocking teak or WPC, snap-fit, raised base.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">10</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><circle cx="16" cy="12" r="5"/><path d="M16 17v6M12 26h8"/><path d="M4 12h3M25 12h3M10 6l2 2M22 6l-2 2"/></svg></div>
+                                <h4 class="sku_name">Basic Lighting Kit</h4>
+                                <div class="sku_note">IP65 warm-white string lights + one accent spot.</div>
+                            </article>
+                            <article class="sku_tile is-soon">
+                                <div class="sku_soon">Coming soon</div>
+                                <div class="sku_index">11</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M8 12h16l-2 16H10z"/><path d="M14 12V6a2 2 0 114 0v6"/><path d="M12 18h8M12 22h8"/></svg></div>
+                                <h4 class="sku_name">Planter Module</h4>
+                                <div class="sku_note">Rail-mount trough with self-water reservoir.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">12</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M4 24h24"/><path d="M6 24l2-8M10 24l2-10M14 24l2-12M18 24l2-10M22 24l2-8M26 24l1-6"/></svg></div>
+                                <h4 class="sku_name">Artificial Grass Patch</h4>
+                                <div class="sku_note">30mm pile, UV-treated, drains through base.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">13</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><path d="M10 14h12l-1.5 14h-9z"/><path d="M14 14V10a2 2 0 114 0v4"/></svg></div>
+                                <h4 class="sku_name">Extra Planters</h4>
+                                <div class="sku_note">Terracotta, HDPE, or ribbed-cement — made to order.</div>
+                            </article>
+                            <article class="sku_tile">
+                                <div class="sku_index">14</div>
+                                <div class="sku_icon"><svg viewBox="0 0 32 32" stroke-width="1.2" stroke-linecap="round"><circle cx="10" cy="10" r="3"/><circle cx="22" cy="10" r="3"/><circle cx="16" cy="22" r="3"/><path d="M10 13v4M22 13v4M16 18v-3M13 16l3-2 3 2"/></svg></div>
+                                <h4 class="sku_name">Lighting Upgrade Kit</h4>
+                                <div class="sku_note">Dimmable + colour temp, wall-wash + task + accent.</div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Add-ons -->
+                    <div class="system_block">
+                        <div class="system_subhead">
+                            <h3>Standalone add-ons</h3>
+                            <div class="system_subhead_note">Swap, upgrade, retrofit</div>
+                        </div>
+                        <div class="addon_list">
+                            <div class="addon_row">
+                                <div class="addon_name">Motorised Roll-Down Upgrade</div>
+                                <div class="addon_price">₹10K–₹15K</div>
+                            </div>
+                            <div class="addon_row">
+                                <div class="addon_name">Extra Lighting</div>
+                                <div class="addon_price">₹2K–₹5K</div>
+                            </div>
+                            <div class="addon_row">
+                                <div class="addon_name">Storage Cabinet</div>
+                                <div class="addon_price">₹6K–₹12K</div>
+                            </div>
+                            <div class="addon_row">
+                                <div class="addon_name">Artificial Grass Patch</div>
+                                <div class="addon_price">₹3K–₹8K</div>
+                            </div>
+                            <div class="addon_row">
+                                <div class="addon_name">Standalone Rain Shade</div>
+                                <div class="addon_price">₹12K–₹25K</div>
+                            </div>
+                            <div class="addon_row">
+                                <div class="addon_name">Standalone Roll-Down Sheet</div>
+                                <div class="addon_price">₹15K–₹30K</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outro CTA -->
+                    <div class="system_outro scroll-into-view">
+                        <h3>Not sure which tier fits your balcony?<br/><em>A 30-minute audit gives you a priced, right-sized plan.</em></h3>
+                        <a data-wf--button--variant="primary" href="/contact" class="button w-inline-block">
+                            <div class="button_content">
+                                <div class="button-text">Book a balcony audit</div>
+                                <div class="button-text is-two">Book a balcony audit</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="padding-section-small"></div>
+        </section>
         <section class="section_events bg-default">
             <div class="padding-global">
                 <div class="container-large">
                     <div class="event_layout">
                         <div class="event_layout-left">
                             <div class="heading_number is-events">
-                                <div class="text-6xl">04</div>
+                                <div class="text-6xl">05</div>
                                 <div>Community</div>
                             </div>
                             <div class="max-heading is-34rem">
@@ -648,7 +1380,7 @@ a,
                                 </div>
                             </div>
                             <div class="heading_number hide-mobile-landscape scroll-into-view">
-                                <div class="text-6xl">04</div>
+                                <div class="text-6xl">05</div>
                                 <div>Community</div>
                             </div>
                         </div>
@@ -705,7 +1437,7 @@ a,
                                 <div class="img-wrap"></div>
                             </div>
                             <div class="heading_number scroll-into-view">
-                                <div class="text-6xl">05</div>
+                                <div class="text-6xl">06</div>
                                 <div>FAQs</div>
                             </div>
                         </div>
