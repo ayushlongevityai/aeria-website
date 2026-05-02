@@ -871,13 +871,12 @@
         position: absolute;
         inset: 0;
         z-index: 0;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(5, 7, 6, 0.06),
-            rgba(5, 7, 6, 0.18) 44%,
-            rgba(5, 7, 6, 0.52)
-          );
+        background: linear-gradient(
+          180deg,
+          rgba(5, 7, 6, 0.06),
+          rgba(5, 7, 6, 0.18) 44%,
+          rgba(5, 7, 6, 0.52)
+        );
         opacity: 1;
       }
 
@@ -1760,14 +1759,88 @@
 
       .form-status {
         display: none;
-        margin: 14px 0 0;
-        color: var(--moss);
-        font-size: 13px;
+        position: relative;
+        margin: 18px 0 0;
+        padding: 18px 18px 18px 58px;
+        border: 1px solid rgba(100, 113, 77, 0.32);
+        border-radius: 8px;
+        color: var(--ink);
+        background: rgba(255, 250, 242, 0.9);
+        box-shadow: 0 16px 38px rgba(22, 19, 14, 0.12);
+        font-size: 15px;
         font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .form-status::before {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--status-color, var(--moss));
+        box-shadow: 0 0 0 7px var(--status-halo, rgba(100, 113, 77, 0.16));
+      }
+
+      .form-status::after {
+        content: "";
+        position: absolute;
+        top: 24px;
+        left: 26px;
+        width: 6px;
+        height: 10px;
+        border: solid var(--white);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
       }
 
       .form-status:not(:empty) {
         display: block;
+      }
+
+      .form-status.is-progress {
+        --status-color: var(--gold);
+        --status-halo: rgba(185, 148, 104, 0.18);
+      }
+
+      .form-status.is-progress::after {
+        top: 25px;
+        left: 25px;
+        width: 8px;
+        height: 8px;
+        border: 2px solid rgba(255, 250, 242, 0.42);
+        border-top-color: var(--white);
+        border-radius: 50%;
+        transform: none;
+        animation: submit-spin 760ms linear infinite;
+      }
+
+      .form-status.is-error {
+        --status-color: var(--clay);
+        --status-halo: rgba(169, 88, 60, 0.16);
+      }
+
+      .form-status.is-error::after {
+        top: 22px;
+        left: 29px;
+        width: 2px;
+        height: 12px;
+        border: 0;
+        border-radius: 2px;
+        background: var(--white);
+        transform: none;
+      }
+
+      .form-status.is-success {
+        border-color: rgba(100, 113, 77, 0.42);
+        background:
+          linear-gradient(135deg, rgba(100, 113, 77, 0.16), transparent 54%),
+          rgba(255, 250, 242, 0.96);
+        box-shadow:
+          0 18px 44px rgba(100, 113, 77, 0.18),
+          inset 0 0 0 1px rgba(255, 250, 242, 0.58);
       }
 
       .form-submit {
@@ -2055,7 +2128,6 @@
       }
 
       @media (max-width: 980px) {
-
         .hero-inner,
         .split-intro,
         .process-wrap,
@@ -2265,7 +2337,8 @@
             href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
             target="_blank"
             rel="noopener"
-          >WhatsApp</a>
+            >WhatsApp</a
+          >
         </nav>
         <div class="header-actions">
           <a
@@ -2314,7 +2387,8 @@
             href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
             target="_blank"
             rel="noopener"
-          >WhatsApp</a>
+            >WhatsApp</a
+          >
         </nav>
       </aside>
 
@@ -2353,7 +2427,10 @@
           <div class="scroll-cue" aria-hidden="true"></div>
         </section>
 
-        <section class="grill-cinema" aria-label="Invisible grill safety visual">
+        <section
+          class="grill-cinema"
+          aria-label="Invisible grill safety visual"
+        >
           <div class="grill-stage">
             <div class="grill-frame">
               <video
@@ -2474,13 +2551,24 @@
 
             <div class="solutions-grid">
               <article class="solution-card reveal">
-                <div class="solution-visual" aria-hidden="true"></div>
+                <div class="solution-visual">
+                  <img
+                    src="assets/images/aeria/bird-protection-balcony.jpg"
+                    srcset="
+                      assets/images/aeria/bird-protection-balcony-p-500.jpg 500w,
+                      assets/images/aeria/bird-protection-balcony-p-800.jpg 800w,
+                      assets/images/aeria/bird-protection-balcony.jpg       1600w
+                    "
+                    sizes="(max-width: 767px) calc(100vw - 40px), 20vw"
+                    alt="A pigeon perched on a balcony railing"
+                  />
+                </div>
                 <div>
                   <div class="solution-number">01 / Bird</div>
                   <h3>Bird Protection</h3>
                   <p>
-                    Low-visibility pigeon netting that keeps birds out while
-                    the balcony stays visually open.
+                    Low-visibility pigeon netting that keeps birds out while the
+                    balcony stays visually open.
                   </p>
                 </div>
                 <ul class="solution-list">
@@ -2499,9 +2587,7 @@
                 <div>
                   <div class="solution-number">02 / Safety</div>
                   <h3>Invisible Grill</h3>
-                  <p>
-                    Railing safety with a lighter visual profile.
-                  </p>
+                  <p>Railing safety with a lighter visual profile.</p>
                 </div>
                 <ul class="solution-list">
                   <li>Child and pet safety</li>
@@ -2519,9 +2605,7 @@
                 <div>
                   <div class="solution-number">03 / Airflow</div>
                   <h3>Mosquito Mesh</h3>
-                  <p>
-                    Fresh air without the evening compromise.
-                  </p>
+                  <p>Fresh air without the evening compromise.</p>
                 </div>
                 <ul class="solution-list">
                   <li>Magnetic systems</li>
@@ -2539,9 +2623,7 @@
                 <div>
                   <div class="solution-number">04 / Weather</div>
                   <h3>Rain Sheets</h3>
-                  <p>
-                    Protection from rain splash, wind and dust.
-                  </p>
+                  <p>Protection from rain splash, wind and dust.</p>
                 </div>
                 <ul class="solution-list">
                   <li>Manual systems</li>
@@ -2559,9 +2641,7 @@
                 <div>
                   <div class="solution-number">05 / Utility</div>
                   <h3>Drying Racks</h3>
-                  <p>
-                    Better daily utility without crowding the railing.
-                  </p>
+                  <p>Better daily utility without crowding the railing.</p>
                 </div>
                 <ul class="solution-list">
                   <li>Ceiling mounted</li>
@@ -2571,7 +2651,11 @@
               </article>
             </div>
 
-            <div class="section-divider" id="enhancements" aria-hidden="true"></div>
+            <div
+              class="section-divider"
+              id="enhancements"
+              aria-hidden="true"
+            ></div>
 
             <div class="split-intro">
               <div class="reveal">
@@ -2642,8 +2726,8 @@
               <div class="kicker">How It Starts</div>
               <h2>Measured from the first message.</h2>
               <p class="lede">
-                Send photos. We check the space, recommend the right first
-                layer and keep the work clean.
+                Send photos. We check the space, recommend the right first layer
+                and keep the work clean.
               </p>
               <div class="actions">
                 <a
@@ -2680,7 +2764,9 @@
                 <div class="process-index">3</div>
                 <div>
                   <h3>Clear options</h3>
-                  <p>You get practical choices for the essential layer first.</p>
+                  <p>
+                    You get practical choices for the essential layer first.
+                  </p>
                 </div>
               </article>
               <article class="process-card reveal">
@@ -2705,9 +2791,7 @@
             <div class="cta-panel reveal">
               <div class="kicker">Start Simple</div>
               <h2>Send one photo of the space.</h2>
-              <p class="lede">
-                We will suggest the right first layer.
-              </p>
+              <p class="lede">We will suggest the right first layer.</p>
               <div class="actions">
                 <a
                   class="button light magnetic"
@@ -2729,9 +2813,7 @@
             <div class="reveal">
               <div class="kicker">Contact</div>
               <h2>Request a balcony check.</h2>
-              <p class="lede">
-                Share the basics. We will reply on WhatsApp.
-              </p>
+              <p class="lede">Share the basics. We will reply on WhatsApp.</p>
               <div class="contact-note">
                 <p>No payment required.</p>
               </div>
@@ -2812,7 +2894,7 @@
                 </div>
                 <div class="form-field is-full">
                   <label for="problem_type"
-                    >What would you like to improve first?</label
+                    >What issue would you like to address first?</label
                   >
                   <input
                     id="problem_type"
@@ -2920,6 +3002,7 @@
                 id="form-status"
                 role="status"
                 aria-live="polite"
+                tabindex="-1"
               ></div>
               <p class="form-note">
                 We will contact you on WhatsApp after you submit.
@@ -2932,9 +3015,7 @@
       <footer class="footer">
         <div class="footer-inner">
           <img src="assets/aeria-logo-footer.png" alt="Aeria" />
-          <div>
-            Premium upgrades for balconies, windows and open spaces.
-          </div>
+          <div>Premium upgrades for balconies, windows and open spaces.</div>
         </div>
       </footer>
     </div>
@@ -2976,13 +3057,13 @@
         var mobileDrawerBackdrop = document.querySelector(
           ".mobile-drawer-backdrop",
         );
-        var navLinks = Array.prototype.slice.call(
-          document.querySelectorAll(".header-links a"),
-        ).concat(
-          Array.prototype.slice.call(
-            document.querySelectorAll(".mobile-drawer a"),
-          ),
-        );
+        var navLinks = Array.prototype.slice
+          .call(document.querySelectorAll(".header-links a"))
+          .concat(
+            Array.prototype.slice.call(
+              document.querySelectorAll(".mobile-drawer a"),
+            ),
+          );
         var headerToggle = document.querySelector(".header-toggle");
         if (headerToggle && topbar) {
           var closeMenu = function () {
@@ -3051,8 +3132,24 @@
             );
         }
 
-        function setFormStatus(message) {
-          if (formStatus) formStatus.textContent = message || "";
+        function setFormStatus(message, type) {
+          if (!formStatus) return;
+
+          formStatus.textContent = message || "";
+          formStatus.classList.remove("is-success", "is-error", "is-progress");
+          if (message && type) formStatus.classList.add("is-" + type);
+        }
+
+        function focusFormStatus() {
+          if (!formStatus || !formStatus.textContent) return;
+
+          window.requestAnimationFrame(function () {
+            formStatus.focus({ preventScroll: true });
+            formStatus.scrollIntoView({
+              block: "center",
+              behavior: reduceMotion ? "auto" : "smooth",
+            });
+          });
         }
 
         function setFormSubmitting(isSubmitting) {
@@ -3203,6 +3300,7 @@
           if (firstInvalid) {
             setFormStatus(
               "Please fix the highlighted details before submitting.",
+              "error",
             );
             firstInvalid.focus();
             return false;
@@ -3535,17 +3633,13 @@
                 suggestion.placeId,
               );
               setPincodeValue(suggestion.pincode);
-              setFormStatus(
-                "Address selected from " + suggestion.provider + ".",
-              );
+              setFormStatus("");
               return;
             }
 
             setLocationFields(null, null, suggestion.placeId);
             setPincodeValue(suggestion.pincode);
-            setFormStatus(
-              "Address selected. Location coordinates were not returned.",
-            );
+            setFormStatus("");
           });
         }
 
@@ -3947,11 +4041,11 @@
         if (locationButton) {
           locationButton.addEventListener("click", function () {
             if (!navigator.geolocation) {
-              setFormStatus("Location is not supported in this browser.");
+              setFormStatus("Location is not supported in this browser.", "error");
               return;
             }
 
-            setFormStatus("Fetching your location...");
+            setFormStatus("Fetching your location...", "progress");
             navigator.geolocation.getCurrentPosition(
               function (position) {
                 var lat = position.coords.latitude;
@@ -3967,19 +4061,16 @@
                     }
                     setLocationFields(lat, lon, result.placeId || "");
                     setPincodeValue(result.pincode);
-                    setFormStatus(
-                      "Location added. You can edit the address if needed.",
-                    );
+                    setFormStatus("");
                   })
                   .catch(function () {
-                    setFormStatus(
-                      "Location added. Please type your society name/address.",
-                    );
+                    setFormStatus("");
                   });
               },
               function () {
                 setFormStatus(
                   "Could not access location. Please type your society name/address.",
+                  "error",
                 );
               },
               { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
@@ -4026,14 +4117,19 @@
             formData.append("submitted_at", new Date().toISOString());
 
             if (!GOOGLE_SHEETS_WEB_APP_URL) {
-              setFormStatus("Opening WhatsApp with your details...");
+              setFormStatus("Opening WhatsApp with your details...", "progress");
               openWhatsAppWithForm(formData);
               resetInterestForm();
+              setFormStatus(
+                "Recommendation requested. WhatsApp is opening with your details, and we will reply there.",
+                "success",
+              );
+              focusFormStatus();
               setFormSubmitting(false);
               return;
             }
 
-            setFormStatus("Submitting your details...");
+            setFormStatus("Submitting your details...", "progress");
             fetch(GOOGLE_SHEETS_WEB_APP_URL, {
               method: "POST",
               mode: "no-cors",
@@ -4041,11 +4137,16 @@
             })
               .then(function () {
                 resetInterestForm();
-                setFormStatus("Thank you. Your details have been submitted.");
+                setFormStatus(
+                  "Recommendation requested. Thank you - your details have been submitted. We will reply on WhatsApp.",
+                  "success",
+                );
+                focusFormStatus();
               })
               .catch(function () {
                 setFormStatus(
                   "Could not submit to the sheet. Opening WhatsApp instead...",
+                  "error",
                 );
                 openWhatsAppWithForm(formData);
               })
