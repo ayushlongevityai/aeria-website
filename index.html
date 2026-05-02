@@ -2,29 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Aeria — Balcony &amp; Open-Space Transformations</title>
+    <title>Aeria | Balcony and Open-Space Upgrades</title>
     <meta
-      content="Aeria designs and delivers balcony, terrace, and rooftop spaces that feel like real rooms—weather-smart, strata-aware, and tailored to how you live outside."
+      content="Premium upgrades for balconies, windows and semi-open spaces. Safety essentials now, with greenery, lighting, furniture and sound coming next."
       name="description"
     />
     <meta
-      content="Aeria — Balcony &amp; Open-Space Transformations"
+      content="Aeria | Upgrade the open spaces you already own"
       property="og:title"
     />
     <meta
-      content="We transform balconies, terraces, and rooftops into usable, beautiful open-air rooms—planned for structure, weather, and daily ritual."
+      content="Aeria upgrades balconies, windows and semi-open spaces with premium safety, comfort and enhancement systems."
       property="og:description"
     />
-    <meta content="assets/images/hero-og.jpg" property="og:image" />
     <meta
-      content="Aeria — Balcony &amp; Open-Space Transformations"
+      content="assets/images/aeria/luxury-open-balcony-hero.jpg"
+      property="og:image"
+    />
+    <meta
+      content="Aeria | Upgrade the open spaces you already own"
       property="twitter:title"
     />
     <meta
-      content="We transform balconies, terraces, and rooftops into usable, beautiful open-air rooms—planned for structure, weather, and daily ritual."
+      content="Aeria upgrades balconies, windows and semi-open spaces with premium safety, comfort and enhancement systems."
       property="twitter:description"
     />
-    <meta content="assets/images/hero-og.jpg" property="twitter:image" />
+    <meta
+      content="assets/images/aeria/luxury-open-balcony-hero.jpg"
+      property="twitter:image"
+    />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -225,11 +231,12 @@
         color: var(--white);
         background: rgba(18, 18, 15, 0.52);
         border: 1px solid rgba(255, 250, 242, 0.22);
-        border-radius: 0 0 28px 28px;
         box-shadow:
           0 18px 70px rgba(0, 0, 0, 0.24),
           inset 0 1px 0 rgba(255, 250, 242, 0.12);
         backdrop-filter: blur(26px);
+        -webkit-backdrop-filter: blur(26px);
+        border-radius: 22px;
         transition:
           background 260ms ease,
           border-color 260ms ease,
@@ -349,6 +356,59 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
+      }
+
+      .header-links-whatsapp {
+        display: none;
+      }
+
+      .header-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 250, 242, 0.24);
+        background: rgba(255, 250, 242, 0.08);
+        color: var(--white);
+        cursor: pointer;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        transition:
+          background 220ms ease,
+          border-color 220ms ease;
+      }
+
+      .header-toggle:hover {
+        background: rgba(255, 250, 242, 0.14);
+      }
+
+      .header-toggle-bar {
+        display: block;
+        width: 18px;
+        height: 1.5px;
+        background: currentColor;
+        border-radius: 2px;
+        transition:
+          transform 240ms var(--ease),
+          opacity 200ms ease;
+      }
+
+      .topbar.is-open .header-toggle-bar:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .topbar.is-open .header-toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .topbar.is-open .header-toggle-bar:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+
+      .mobile-drawer-backdrop,
+      .mobile-drawer {
+        display: none;
       }
 
       .button,
@@ -629,19 +689,41 @@
       }
 
       .button.light {
-        --btn-bg: rgba(255, 250, 242, 0.14);
-        --btn-color: var(--white);
-        border-color: rgba(255, 250, 242, 0.28);
-        box-shadow: none;
-        backdrop-filter: blur(14px);
+        --btn-bg: #c8945c;
+        --btn-color: #ffffff;
+        border-color: #c8945c;
+        min-height: 62px;
+        padding: 0 34px;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        box-shadow: 0 18px 44px rgba(185, 148, 104, 0.45);
+        backdrop-filter: none;
+      }
+
+      .button.light:hover {
+        --btn-bg: #b07d44;
+        --btn-color: #ffffff;
+        border-color: #b07d44;
+        box-shadow: 0 22px 56px rgba(185, 148, 104, 0.55);
       }
 
       .button.ghost {
-        --btn-bg: rgba(255, 250, 242, 0.08);
+        --btn-bg: rgba(255, 250, 242, 0.06);
         --btn-color: var(--white);
-        border-color: rgba(255, 250, 242, 0.28);
-        box-shadow: none;
-        backdrop-filter: blur(14px);
+        border-color: rgba(255, 250, 242, 0.7);
+        border-width: 1.5px;
+        min-height: 62px;
+        padding: 0 30px;
+        font-size: 14px;
+        font-weight: 800;
+        box-shadow: 0 8px 24px rgba(16, 16, 14, 0.28);
+        backdrop-filter: blur(10px);
+      }
+
+      .button.ghost:hover {
+        --btn-bg: rgba(255, 250, 242, 0.16);
+        border-color: var(--white);
       }
 
       .button.dark-ghost {
@@ -750,34 +832,37 @@
         border-radius: 0;
         box-shadow: none;
         background:
-          radial-gradient(
-            circle at 45% 42%,
-            rgba(185, 148, 104, 0.3),
-            transparent 22rem
-          ),
-          radial-gradient(
-            ellipse at 62% 28%,
-            rgba(255, 250, 242, 0.16),
-            transparent 26rem
-          ),
           linear-gradient(
             90deg,
-            rgba(6, 8, 6, 0.72),
-            transparent 18%,
-            transparent 82%,
-            rgba(6, 8, 6, 0.72)
+            rgba(6, 8, 6, 0.5),
+            rgba(6, 8, 6, 0.06) 50%,
+            rgba(6, 8, 6, 0.34)
           ),
-          linear-gradient(
-            180deg,
-            #38453f 0%,
-            #9ba596 45%,
-            #3c4338 72%,
-            #121510 100%
-          );
+          url("assets/images/aeria/premium-hero-balcony.jpg") center / cover
+            no-repeat;
       }
 
       .grill-frame video,
       .grill-frame img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+
+      .grill-frame .grill-fallback {
+        z-index: 0;
+        display: block;
+      }
+
+      .grill-frame.has-video .grill-video {
+        z-index: 0;
+        display: block;
+      }
+
+      .grill-frame.has-video .grill-fallback {
         display: none;
       }
 
@@ -788,32 +873,12 @@
         z-index: 0;
         background:
           linear-gradient(
-            90deg,
-            transparent 0 33%,
-            rgba(16, 16, 14, 0.28) 33% 35%,
-            transparent 35% 72%,
-            rgba(16, 16, 14, 0.24) 72% 74%,
-            transparent 74%
-          ),
-          linear-gradient(0deg, rgba(6, 8, 6, 0.42) 0 18%, transparent 18%),
-          linear-gradient(
-            0deg,
-            transparent 0 54%,
-            rgba(255, 250, 242, 0.12) 54% 54.4%,
-            transparent 54.4%
-          ),
-          radial-gradient(
-            ellipse at 50% 66%,
-            rgba(255, 250, 242, 0.22),
-            transparent 24rem
-          ),
-          linear-gradient(
             180deg,
-            rgba(255, 250, 242, 0.16),
-            transparent 34%,
-            rgba(5, 7, 6, 0.45)
+            rgba(5, 7, 6, 0.06),
+            rgba(5, 7, 6, 0.18) 44%,
+            rgba(5, 7, 6, 0.52)
           );
-        opacity: 0.9;
+        opacity: 1;
       }
 
       .grill-shot {
@@ -1051,7 +1116,7 @@
       .solutions-grid {
         margin-top: 48px;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 1px;
         overflow: hidden;
         border: 1px solid var(--line);
@@ -1140,6 +1205,10 @@
 
       .solution-card:nth-child(4) {
         --accent: var(--gold);
+      }
+
+      .solution-card:nth-child(5) {
+        --accent: var(--slate);
       }
 
       .solution-number {
@@ -1269,6 +1338,32 @@
         gap: 16px;
       }
 
+      .section-divider {
+        position: relative;
+        margin: clamp(80px, 10vw, 132px) 0 clamp(56px, 6vw, 88px);
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(20, 20, 18, 0) 0%,
+          rgba(20, 20, 18, 0.16) 22%,
+          rgba(20, 20, 18, 0.16) 78%,
+          rgba(20, 20, 18, 0) 100%
+        );
+      }
+
+      .section-divider::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--ink);
+        opacity: 0.55;
+      }
+
       .enhance-card {
         min-height: 420px;
         position: relative;
@@ -1282,16 +1377,21 @@
       }
 
       .enhance-card:nth-child(1) {
-        grid-column: span 5;
+        grid-column: span 6;
       }
 
       .enhance-card:nth-child(2) {
-        grid-column: span 3;
+        grid-column: span 6;
         margin-top: 58px;
       }
 
       .enhance-card:nth-child(3) {
-        grid-column: span 4;
+        grid-column: span 6;
+      }
+
+      .enhance-card:nth-child(4) {
+        grid-column: span 6;
+        margin-top: 58px;
       }
 
       .enhance-card img {
@@ -1844,9 +1944,117 @@
           width: min(100% - 32px, 1180px);
         }
 
+        .header-toggle {
+          display: inline-flex;
+        }
+
+        .header-whatsapp,
+        .header-cta {
+          display: none;
+        }
+
         .header-links {
           display: none;
         }
+
+        body.menu-open {
+          overflow: hidden;
+        }
+
+        .mobile-drawer-backdrop {
+          position: fixed;
+          inset: 0;
+          z-index: 84;
+          display: block;
+          background: rgba(5, 7, 6, 0.48);
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition:
+            opacity 220ms ease,
+            visibility 220ms ease;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+
+        .mobile-drawer {
+          position: fixed;
+          top: 92px;
+          left: 12px;
+          right: 12px;
+          z-index: 89;
+          display: block;
+          padding: 12px;
+          color: var(--white);
+          border: 1px solid rgba(255, 250, 242, 0.18);
+          border-radius: 18px;
+          background: rgba(18, 18, 15, 0.92);
+          box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+          opacity: 0;
+          transform: translateY(-10px) scale(0.98);
+          visibility: hidden;
+          pointer-events: none;
+          transition:
+            opacity 220ms ease,
+            transform 220ms var(--ease),
+            visibility 220ms ease;
+          backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
+        }
+
+        body.menu-open .mobile-drawer-backdrop,
+        body.menu-open .mobile-drawer {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+        }
+
+        body.menu-open .mobile-drawer {
+          transform: translateY(0) scale(1);
+        }
+
+        .mobile-drawer-links {
+          display: grid;
+          gap: 6px;
+        }
+
+        .mobile-drawer-links a {
+          min-height: 52px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 16px;
+          color: rgba(255, 250, 242, 0.88);
+          border: 1px solid rgba(255, 250, 242, 0.1);
+          border-radius: 12px;
+          background: rgba(255, 250, 242, 0.06);
+          font-size: 15px;
+          font-weight: 750;
+          text-decoration: none;
+        }
+
+        .mobile-drawer-links a::after {
+          content: "";
+          width: 7px;
+          height: 7px;
+          border-top: 1.5px solid currentColor;
+          border-right: 1.5px solid currentColor;
+          transform: rotate(45deg);
+          opacity: 0.72;
+        }
+
+        .mobile-drawer-links .mobile-drawer-whatsapp {
+          color: var(--white);
+          border-color: rgba(37, 211, 102, 0.34);
+          background: linear-gradient(
+            135deg,
+            rgba(37, 211, 102, 0.24),
+            rgba(255, 250, 242, 0.08)
+          );
+        }
+      }
+
+      @media (max-width: 980px) {
 
         .hero-inner,
         .split-intro,
@@ -1873,7 +2081,8 @@
 
         .enhance-card:nth-child(1),
         .enhance-card:nth-child(2),
-        .enhance-card:nth-child(3) {
+        .enhance-card:nth-child(3),
+        .enhance-card:nth-child(4) {
           grid-column: span 12;
           margin-top: 0;
           min-height: 360px;
@@ -2035,7 +2244,7 @@
     <div class="preloader" aria-hidden="true">
       <div class="preloader-mark">
         <img src="assets/aeria-logo-footer.png" alt="" />
-        <span>Preparing the open room</span>
+        <span>Aeria Open Space Studio</span>
       </div>
     </div>
 
@@ -2045,15 +2254,23 @@
           <img src="assets/aeria-logo.png" alt="Aeria" class="logo" />
           <span class="brand-text">Aeria</span>
         </a>
-        <nav class="header-links" aria-label="Page sections">
+        <nav class="header-links" id="primary-nav" aria-label="Page sections">
           <a href="#spaces">Spaces</a>
-          <a href="#solutions">Solutions</a>
+          <a href="#essentials">Essentials</a>
           <a href="#process">Process</a>
+          <a href="#enhancements">Coming Soon</a>
+          <a href="#contact-form">Contact</a>
+          <a
+            class="header-links-whatsapp"
+            href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
+            target="_blank"
+            rel="noopener"
+          >WhatsApp</a>
         </nav>
         <div class="header-actions">
           <a
             class="header-whatsapp magnetic"
-            href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20discuss%20my%20balcony%20or%20terrace%20space."
+            href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
             target="_blank"
             rel="noopener"
           >
@@ -2065,44 +2282,78 @@
             WhatsApp
           </a>
           <a class="header-cta magnetic" href="#contact-form">Contact</a>
+          <button
+            type="button"
+            class="header-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <span class="header-toggle-bar"></span>
+            <span class="header-toggle-bar"></span>
+            <span class="header-toggle-bar"></span>
+          </button>
         </div>
       </header>
+
+      <div class="mobile-drawer-backdrop" aria-hidden="true"></div>
+      <aside
+        class="mobile-drawer"
+        id="mobile-drawer"
+        aria-label="Page sections"
+        aria-hidden="true"
+      >
+        <nav class="mobile-drawer-links">
+          <a href="#spaces">Spaces</a>
+          <a href="#essentials">Essentials</a>
+          <a href="#process">Process</a>
+          <a href="#enhancements">Coming Soon</a>
+          <a href="#contact-form">Contact</a>
+          <a
+            class="mobile-drawer-whatsapp"
+            href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
+            target="_blank"
+            rel="noopener"
+          >WhatsApp</a>
+        </nav>
+      </aside>
 
       <main>
         <section class="hero" id="top">
           <div class="hero-media parallax-media">
             <img
-              src="assets/images/hero-bg.jpg"
-              alt="A warm balcony overlooking the city at night"
+              src="assets/images/aeria/luxury-open-balcony-hero.jpg"
+              alt="A luxury open balcony lounge with a skyline view"
             />
           </div>
           <div class="hero-scrim" aria-hidden="true"></div>
           <div class="hero-inner">
-            <div class="kicker hero-reveal">Aeria open-space studio</div>
-            <h1 class="hero-reveal">Open spaces finished like interiors.</h1>
+            <div class="kicker hero-reveal">Aeria Open Space Studio</div>
+            <h1 class="hero-reveal">
+              Upgrade the open spaces you already own.
+            </h1>
             <p class="lede hero-reveal">
-              Balconies, terraces and rooftops designed with the restraint of
-              architecture and the comfort of a favourite room. Protection,
-              atmosphere and everyday usability, composed as one premium
-              experience.
+              Premium upgrades for balconies, windows and semi-open spaces. We
+              begin with safety and comfort essentials, then build toward
+              complete outdoor rooms.
             </p>
             <div class="actions hero-reveal">
               <a
                 class="button light magnetic"
-                href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20discuss%20my%20balcony%20or%20terrace%20space."
+                href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
                 target="_blank"
                 rel="noopener"
-                >Start on WhatsApp</a
+                >Book a free consult</a
               >
-              <a class="button ghost magnetic" href="#spaces"
-                >Explore the experience</a
+              <a class="button ghost magnetic" href="#essentials"
+                >View essentials</a
               >
             </div>
           </div>
           <div class="scroll-cue" aria-hidden="true"></div>
         </section>
 
-        <section class="grill-cinema" aria-label="Invisible grill scroll film">
+        <section class="grill-cinema" aria-label="Invisible grill safety visual">
           <div class="grill-stage">
             <div class="grill-frame">
               <video
@@ -2110,13 +2361,13 @@
                 muted
                 playsinline
                 preload="auto"
-                poster="assets/images/system-grill.jpg"
+                poster="assets/images/aeria/premium-hero-balcony.jpg"
                 aria-label="A premium balcony with invisible grill protection"
               ></video>
               <img
                 class="grill-fallback"
-                src="assets/images/system-grill.jpg"
-                alt="A premium balcony with invisible grill protection"
+                src="assets/images/aeria/premium-hero-balcony.jpg"
+                alt="A premium balcony lounge with a city view and greenery"
               />
               <div class="grill-lines" aria-hidden="true">
                 <span></span><span></span><span></span><span></span><span></span
@@ -2126,12 +2377,11 @@
               </div>
               <div class="grill-sheen" aria-hidden="true"></div>
               <div class="grill-copy">
-                <div class="kicker">Invisible grill in motion</div>
-                <h2>Move through the balcony as the safety layer appears.</h2>
+                <div class="kicker">Safety Essential</div>
+                <h2>Protection without closing the view.</h2>
                 <p class="lede">
-                  Scroll forward and the balcony film moves with you. Scroll
-                  back and it reverses, while the invisible-grill layer draws
-                  itself into the view.
+                  Invisible grills add safety while keeping the balcony light,
+                  open and easy to live with.
                 </p>
               </div>
             </div>
@@ -2142,16 +2392,16 @@
           <div class="section-inner">
             <div class="split-intro">
               <div class="reveal">
-                <div class="kicker">The open room</div>
+                <div class="kicker">What Aeria Upgrades</div>
                 <h2>
-                  A balcony should feel intentional before it feels decorated.
+                  Balconies, windows and the spaces between indoors and out.
                 </h2>
               </div>
               <div class="reveal">
                 <p class="lede">
-                  The premium feeling begins with control: cleaner edges, safer
-                  railings, calmer weather exposure, filtered airflow and a
-                  visual language that does not make the home feel boxed in.
+                  We work on the parts of a home that usually stay unfinished:
+                  balcony edges, window openings, utility corners, open decks
+                  and semi-open sit-outs.
                 </p>
               </div>
             </div>
@@ -2160,32 +2410,32 @@
             <div class="spaces-showcase">
               <article class="image-tile tall image-reveal">
                 <img
-                  src="assets/images/system-hero.jpg"
-                  alt="A protected balcony arranged for everyday use"
+                  src="assets/images/aeria/hero-balcony-city-view.jpg"
+                  alt="A modern high-rise balcony arranged for everyday use"
                 />
                 <div class="tile-copy">
-                  <span>Balcony systems</span>
-                  <h3>Protection that disappears into the view.</h3>
+                  <span>Balconies</span>
+                  <h3>Make daily use of the view.</h3>
                 </div>
               </article>
               <article class="image-tile short image-reveal">
                 <img
-                  src="assets/images/system-grill.jpg"
-                  alt="Invisible grill detail for balcony safety"
+                  src="assets/images/aeria/singapore-balcony-detail.jpg"
+                  alt="A planted Singapore balcony and window opening"
                 />
                 <div class="tile-copy">
-                  <span>Invisible safety</span>
-                  <h3>Confidence near the railing.</h3>
+                  <span>Windows</span>
+                  <h3>Cleaner openings for air, safety and comfort.</h3>
                 </div>
               </article>
               <article class="image-tile image-reveal">
                 <img
-                  src="assets/images/project-02.jpg"
-                  alt="A furnished outdoor terrace with greenery"
+                  src="assets/images/aeria/tropical-green-balconies.jpg"
+                  alt="A tropical residential building with green balconies"
                 />
                 <div class="tile-copy">
-                  <span>Open-air living</span>
-                  <h3>Furniture, greenery and warmth.</h3>
+                  <span>Open and semi-open spaces</span>
+                  <h3>Terraces, decks, sit-outs and utility balconies.</h3>
                 </div>
               </article>
             </div>
@@ -2196,34 +2446,49 @@
           <div class="marquee">
             <div class="marquee_track">
               <div class="marquee_list">
-                <div class="cc-marquee_text">Balcony <em>Rooms</em></div>
-                <div class="cc-marquee_text">Terrace <em>Living</em></div>
-                <div class="cc-marquee_text">Rooftop <em>Lounges</em></div>
+                <div class="cc-marquee_text">Balcony Upgrades</div>
+                <div class="cc-marquee_text">Window Systems</div>
+                <div class="cc-marquee_text">Open-Space Living</div>
               </div>
               <div class="marquee_list">
-                <div class="cc-marquee_text">Balcony <em>Rooms</em></div>
-                <div class="cc-marquee_text">Terrace <em>Living</em></div>
-                <div class="cc-marquee_text">Rooftop <em>Lounges</em></div>
+                <div class="cc-marquee_text">Balcony Upgrades</div>
+                <div class="cc-marquee_text">Window Systems</div>
+                <div class="cc-marquee_text">Open-Space Living</div>
               </div>
             </div>
           </div>
         </div>
 
-        <section class="section alt" id="solutions">
+        <section class="section alt" id="essentials">
           <div class="section-inner">
             <div class="split-intro">
               <div class="reveal">
-                <div class="kicker">From problem to polish</div>
-                <h2>Practical fixes, specified with a premium hand.</h2>
+                <div class="kicker">Available Now</div>
+                <h2>Safety and comfort essentials.</h2>
               </div>
               <p class="lede reveal">
-                Birds, mosquitoes, rain splash and safety concerns should not
-                define the space. They are simply the functional layer that must
-                be solved before the room can become beautiful.
+                Installed cleanly. Specified for everyday use. Chosen to keep
+                the space open.
               </p>
             </div>
 
             <div class="solutions-grid">
+              <article class="solution-card reveal">
+                <div class="solution-visual" aria-hidden="true"></div>
+                <div>
+                  <div class="solution-number">01 / Bird</div>
+                  <h3>Bird Protection</h3>
+                  <p>
+                    Low-visibility pigeon netting that keeps birds out while
+                    the balcony stays visually open.
+                  </p>
+                </div>
+                <ul class="solution-list">
+                  <li>Balcony and utility areas</li>
+                  <li>Tensioned finish</li>
+                  <li>Clean edges</li>
+                </ul>
+              </article>
               <article class="solution-card reveal">
                 <div class="solution-visual">
                   <img
@@ -2232,81 +2497,140 @@
                   />
                 </div>
                 <div>
-                  <div class="solution-number">01 / Safety</div>
-                  <h3>Invisible protection</h3>
+                  <div class="solution-number">02 / Safety</div>
+                  <h3>Invisible Grill</h3>
                   <p>
-                    Discreet railing security for high-rise homes, children,
-                    pets and open views.
+                    Railing safety with a lighter visual profile.
                   </p>
                 </div>
                 <ul class="solution-list">
-                  <li>Invisible grill fitment</li>
-                  <li>Clean edge detailing</li>
-                  <li>Minimal visual weight</li>
+                  <li>Child and pet safety</li>
+                  <li>High-rise ready</li>
+                  <li>View-first installation</li>
                 </ul>
               </article>
               <article class="solution-card reveal">
                 <div class="solution-visual">
                   <img
-                    src="assets/images/about-02.jpg"
-                    alt="Balcony doors with a table and plant"
+                    src="assets/images/aeria/sliding-mesh-door-reference.jpg"
+                    alt="Sliding balcony doors opening to an outdoor deck"
                   />
                 </div>
                 <div>
-                  <div class="solution-number">02 / Airflow</div>
-                  <h3>Mosquito control</h3>
+                  <div class="solution-number">03 / Airflow</div>
+                  <h3>Mosquito Mesh</h3>
                   <p>
-                    Fresh air without the evening compromise, planned around how
-                    the door actually moves.
+                    Fresh air without the evening compromise.
                   </p>
                 </div>
                 <ul class="solution-list">
-                  <li>Sliding net options</li>
-                  <li>Magnetic closures</li>
-                  <li>Daily-use hardware</li>
+                  <li>Magnetic systems</li>
+                  <li>Sliding systems</li>
+                  <li>Window and balcony openings</li>
                 </ul>
               </article>
               <article class="solution-card reveal">
                 <div class="solution-visual">
                   <img
-                    src="assets/images/system-allweather.jpg"
-                    alt="Balcony protected from rain and wind"
+                    src="assets/images/aeria/clear-outdoor-curtains.jpg"
+                    alt="Clear outdoor curtains used for rain and wind protection"
                   />
                 </div>
                 <div>
-                  <div class="solution-number">03 / Weather</div>
-                  <h3>Monsoon readiness</h3>
+                  <div class="solution-number">04 / Weather</div>
+                  <h3>Rain Sheets</h3>
                   <p>
-                    Rain, wind and dust control that keeps the balcony usable
-                    across seasons.
+                    Protection from rain splash, wind and dust.
                   </p>
                 </div>
                 <ul class="solution-list">
-                  <li>Manual rain sheets</li>
-                  <li>Motorized upgrades</li>
-                  <li>Cleaner thresholds</li>
+                  <li>Manual systems</li>
+                  <li>Automatic systems</li>
+                  <li>Clear or tinted options</li>
                 </ul>
               </article>
               <article class="solution-card reveal">
                 <div class="solution-visual">
                   <img
-                    src="assets/images/contact-bg.jpg"
-                    alt="Warm balcony lighting and plants at dusk"
+                    src="assets/images/aeria/drying-rack-detail.jpg"
+                    alt="Hands arranging laundry on a drying rack"
                   />
                 </div>
                 <div>
-                  <div class="solution-number">04 / Atmosphere</div>
-                  <h3>Comfort layers</h3>
+                  <div class="solution-number">05 / Utility</div>
+                  <h3>Drying Racks</h3>
                   <p>
-                    The final layer: lighting, planters, seating and quiet audio
-                    for a finished outdoor room.
+                    Better daily utility without crowding the railing.
                   </p>
                 </div>
                 <ul class="solution-list">
-                  <li>Warm lighting</li>
-                  <li>Planter language</li>
-                  <li>Compact furniture</li>
+                  <li>Ceiling mounted</li>
+                  <li>Wall mounted</li>
+                  <li>Pulley options</li>
                 </ul>
+              </article>
+            </div>
+
+            <div class="section-divider" id="enhancements" aria-hidden="true"></div>
+
+            <div class="split-intro">
+              <div class="reveal">
+                <div class="kicker">Coming Soon</div>
+                <h2>The enhancement layer.</h2>
+              </div>
+              <p class="lede reveal">
+                After the essentials, Aeria will help finish the space with
+                greenery, lighting, furniture and sound.
+              </p>
+            </div>
+
+            <div class="enhancement-grid">
+              <article class="enhance-card image-reveal">
+                <img
+                  src="assets/images/aeria/hcmc-plant-covered-balcony.jpg"
+                  alt="A plant-covered balcony in bright daylight"
+                />
+                <div class="enhance-copy">
+                  <div class="kicker">Soon</div>
+                  <h3>Plant Doors</h3>
+                  <p>Green partitions for privacy, shade and softness.</p>
+                </div>
+              </article>
+              <article class="enhance-card image-reveal">
+                <img
+                  src="assets/images/aeria/hanoi-balcony-lighting.jpg"
+                  alt="Warm balcony lighting with trailing plants"
+                />
+                <div class="enhance-copy">
+                  <div class="kicker">Soon</div>
+                  <h3>LED Lighting</h3>
+                  <p>Warm, concealed lighting for evenings outside.</p>
+                </div>
+              </article>
+              <article class="enhance-card image-reveal">
+                <img
+                  src="assets/images/aeria/jakarta-rattan-furniture.jpg"
+                  alt="Rattan outdoor chair surrounded by tropical plants"
+                />
+                <div class="enhance-copy">
+                  <div class="kicker">Soon</div>
+                  <h3>Outdoor Furniture</h3>
+                  <p>
+                    Weather-ready pieces sized for balconies, terraces and open
+                    corners.
+                  </p>
+                </div>
+              </article>
+              <article class="enhance-card image-reveal">
+                <img
+                  src="assets/images/aeria/speaker-with-plant.jpg"
+                  alt="A discreet speaker placed beside a green plant"
+                />
+                <div class="enhance-copy">
+                  <div class="kicker">Soon</div>
+                  <h3>Speakers</h3>
+                  <p>Discreet outdoor sound, planned into the space.</p>
+                </div>
               </article>
             </div>
           </div>
@@ -2315,20 +2639,19 @@
         <section class="section dark" id="process">
           <div class="section-inner process-wrap">
             <div class="process-sticky reveal">
-              <div class="kicker">From protection to atmosphere</div>
-              <h2>A measured process for open-space transformation.</h2>
+              <div class="kicker">How It Starts</div>
+              <h2>Measured from the first message.</h2>
               <p class="lede">
-                Start with a WhatsApp conversation. Share the space, the
-                irritations and the dream. Aeria reads the opening, weather
-                exposure and lifestyle before recommending the right layers.
+                Send photos. We check the space, recommend the right first
+                layer and keep the work clean.
               </p>
               <div class="actions">
                 <a
                   class="button light magnetic"
-                  href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20share%20my%20balcony%20or%20terrace%20brief."
+                  href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
                   target="_blank"
                   rel="noopener"
-                  >Discuss your open space</a
+                  >Start on WhatsApp</a
                 >
               </div>
             </div>
@@ -2336,103 +2659,35 @@
               <article class="process-card reveal">
                 <div class="process-index">1</div>
                 <div>
-                  <h3>Share the view</h3>
+                  <h3>Share the space</h3>
                   <p>
-                    Send photos, rough dimensions and what currently stops you
-                    from using the space.
+                    Send photos of the balcony, window or open area you want to
+                    improve.
                   </p>
                 </div>
               </article>
               <article class="process-card reveal">
                 <div class="process-index">2</div>
                 <div>
-                  <h3>Solve the exposure</h3>
+                  <h3>Site check</h3>
                   <p>
-                    We identify the protection layers: safety, insects, birds,
-                    rain, wind or privacy.
+                    We verify size, fixing points, access and society
+                    requirements.
                   </p>
                 </div>
               </article>
               <article class="process-card reveal">
                 <div class="process-index">3</div>
                 <div>
-                  <h3>Compose the mood</h3>
-                  <p>
-                    Materials, planters, furniture and lighting are brought
-                    together with restraint.
-                  </p>
+                  <h3>Clear options</h3>
+                  <p>You get practical choices for the essential layer first.</p>
                 </div>
               </article>
               <article class="process-card reveal">
                 <div class="process-index">4</div>
                 <div>
-                  <h3>Make it easy to live with</h3>
-                  <p>
-                    The final result should feel premium on day one and
-                    effortless on ordinary weekdays.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="enhancements">
-          <div class="section-inner">
-            <div class="split-intro">
-              <div class="reveal">
-                <div class="kicker">The finishing layers</div>
-                <h2>Small details create the gratification.</h2>
-              </div>
-              <p class="lede reveal">
-                The difference between basic and premium is often felt in
-                motion, proportion and touch: a door that closes cleanly, a
-                light that warms the corner, a chair that fits without crowding
-                the view.
-              </p>
-            </div>
-
-            <div class="enhancement-grid">
-              <article class="enhance-card image-reveal">
-                <img
-                  src="assets/images/about-01.jpg"
-                  alt="A balcony with seating and potted plants"
-                />
-                <div class="enhance-copy">
-                  <div class="kicker">Greenery</div>
-                  <h3>Planter rhythm</h3>
-                  <p>
-                    Vertical greens, rail planters and low-maintenance
-                    arrangements that soften the edge.
-                  </p>
-                </div>
-              </article>
-              <article class="enhance-card image-reveal">
-                <img
-                  src="assets/images/contact-bg.jpg"
-                  alt="Warm balcony lighting at dusk"
-                />
-                <div class="enhance-copy">
-                  <div class="kicker">Evenings</div>
-                  <h3>Light and sound</h3>
-                  <p>
-                    Soft lighting and discreet audio for balconies that come
-                    alive after sunset.
-                  </p>
-                </div>
-              </article>
-              <article class="enhance-card image-reveal">
-                <img
-                  src="assets/images/project-04.jpg"
-                  alt="Outdoor wooden chair and table"
-                />
-                <div class="enhance-copy">
-                  <div class="kicker">Comfort</div>
-                  <h3>Compact furniture</h3>
-                  <p>
-                    Weather-ready pieces chosen for proportion, circulation and
-                    everyday use.
-                  </p>
+                  <h3>Clean installation</h3>
+                  <p>The work is fitted neatly and checked before handover.</p>
                 </div>
               </article>
             </div>
@@ -2442,28 +2697,27 @@
         <section class="section cta" id="contact">
           <div class="cta-media parallax-media">
             <img
-              src="assets/images/event-main.jpg"
-              alt="A rooftop patio with furniture and city view"
+              src="assets/images/aeria/tropical-green-balconies.jpg"
+              alt="A tropical residential building with green balcony edges"
             />
           </div>
           <div class="section-inner">
             <div class="cta-panel reveal">
-              <div class="kicker">Start with one message</div>
-              <h2>Share your balcony, terrace or rooftop brief on WhatsApp.</h2>
+              <div class="kicker">Start Simple</div>
+              <h2>Send one photo of the space.</h2>
               <p class="lede">
-                Tell us what you want the space to become, and what currently
-                gets in the way. A short message is enough to begin.
+                We will suggest the right first layer.
               </p>
               <div class="actions">
                 <a
                   class="button light magnetic"
-                  href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20discuss%20a%20premium%20open-space%20transformation."
+                  href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
                   target="_blank"
                   rel="noopener"
                   >Start on WhatsApp</a
                 >
                 <a class="button ghost magnetic" href="#contact-form"
-                  >Share details instead</a
+                  >Use the form</a
                 >
               </div>
             </div>
@@ -2473,16 +2727,13 @@
         <section class="section contact-section" id="contact-form">
           <div class="section-inner contact-layout">
             <div class="reveal">
-              <div class="kicker">Contact us</div>
-              <h2>Get a quick balcony check.</h2>
+              <div class="kicker">Contact</div>
+              <h2>Request a balcony check.</h2>
               <p class="lede">
-                Share the essentials and Aeria will get back on WhatsApp.
+                Share the basics. We will reply on WhatsApp.
               </p>
               <div class="contact-note">
-                <p>
-                  No payment or booking here. Just enough detail for a cleaner
-                  first conversation.
-                </p>
+                <p>No payment required.</p>
               </div>
             </div>
             <form class="interest-form reveal" id="interest-form" novalidate>
@@ -2560,7 +2811,9 @@
                   ></div>
                 </div>
                 <div class="form-field is-full">
-                  <label for="problem_type">What is your main concern?</label>
+                  <label for="problem_type"
+                    >What would you like to improve first?</label
+                  >
                   <input
                     id="problem_type"
                     name="problem_type"
@@ -2585,9 +2838,17 @@
                         class="custom-select-option"
                         type="button"
                         role="option"
-                        data-value="Pigeons / droppings"
+                        data-value="Birds or pigeons"
                       >
-                        Pigeons / droppings
+                        Birds or pigeons
+                      </button>
+                      <button
+                        class="custom-select-option"
+                        type="button"
+                        role="option"
+                        data-value="Safety"
+                      >
+                        Safety
                       </button>
                       <button
                         class="custom-select-option"
@@ -2601,41 +2862,41 @@
                         class="custom-select-option"
                         type="button"
                         role="option"
-                        data-value="Rain splashing in"
+                        data-value="Rain or wind"
                       >
-                        Rain splashing in
+                        Rain or wind
                       </button>
                       <button
                         class="custom-select-option"
                         type="button"
                         role="option"
-                        data-value="Safety for kids / pets / elderly"
+                        data-value="Drying space"
                       >
-                        Safety for kids / pets / elderly
+                        Drying space
                       </button>
                       <button
                         class="custom-select-option"
                         type="button"
                         role="option"
-                        data-value="Privacy from neighbours"
+                        data-value="Privacy"
                       >
-                        Privacy from neighbours
+                        Privacy
                       </button>
                       <button
                         class="custom-select-option"
                         type="button"
                         role="option"
-                        data-value="Unusable / want to upgrade"
+                        data-value="Complete balcony upgrade"
                       >
-                        Unusable / want to upgrade
+                        Complete balcony upgrade
                       </button>
                       <button
                         class="custom-select-option"
                         type="button"
                         role="option"
-                        data-value="Not sure / need ideas"
+                        data-value="Not sure yet"
                       >
-                        Not sure / need ideas
+                        Not sure yet
                       </button>
                     </div>
                   </div>
@@ -2651,7 +2912,7 @@
                 <input id="pincode" name="pincode" type="hidden" />
               </div>
               <button class="button form-submit magnetic" type="submit">
-                <span class="submit-text">Get free balcony check</span>
+                <span class="submit-text">Get my recommendation</span>
                 <span class="submit-loader" aria-hidden="true"></span>
               </button>
               <div
@@ -2672,8 +2933,7 @@
         <div class="footer-inner">
           <img src="assets/aeria-logo-footer.png" alt="Aeria" />
           <div>
-            Premium open-space transformations for balconies, terraces and
-            rooftops.
+            Premium upgrades for balconies, windows and open spaces.
           </div>
         </div>
       </footer>
@@ -2689,7 +2949,7 @@
       </button>
       <a
         class="whatsapp-float magnetic"
-        href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20discuss%20my%20balcony%20or%20terrace%20space."
+        href="https://wa.me/917676303209?text=Hi%20Aeria%2C%20I%20want%20to%20upgrade%20my%20balcony%20or%20open%20space."
         target="_blank"
         rel="noopener"
         aria-label="Chat with Aeria on WhatsApp"
@@ -2712,9 +2972,59 @@
         var locationButton = document.querySelector("#use-location");
         var formStatus = document.querySelector("#form-status");
         var preloader = document.querySelector(".preloader");
+        var mobileDrawer = document.querySelector("#mobile-drawer");
+        var mobileDrawerBackdrop = document.querySelector(
+          ".mobile-drawer-backdrop",
+        );
         var navLinks = Array.prototype.slice.call(
           document.querySelectorAll(".header-links a"),
+        ).concat(
+          Array.prototype.slice.call(
+            document.querySelectorAll(".mobile-drawer a"),
+          ),
         );
+        var headerToggle = document.querySelector(".header-toggle");
+        if (headerToggle && topbar) {
+          var closeMenu = function () {
+            topbar.classList.remove("is-open");
+            document.body.classList.remove("menu-open");
+            headerToggle.setAttribute("aria-expanded", "false");
+            headerToggle.setAttribute("aria-label", "Open menu");
+            if (mobileDrawer) mobileDrawer.setAttribute("aria-hidden", "true");
+          };
+          var openMenu = function () {
+            topbar.classList.add("is-open");
+            document.body.classList.add("menu-open");
+            headerToggle.setAttribute("aria-expanded", "true");
+            headerToggle.setAttribute("aria-label", "Close menu");
+            if (mobileDrawer) mobileDrawer.setAttribute("aria-hidden", "false");
+          };
+          headerToggle.addEventListener("click", function () {
+            if (topbar.classList.contains("is-open")) {
+              closeMenu();
+            } else {
+              openMenu();
+            }
+          });
+          navLinks.forEach(function (link) {
+            link.addEventListener("click", closeMenu);
+          });
+          if (mobileDrawerBackdrop) {
+            mobileDrawerBackdrop.addEventListener("click", closeMenu);
+          }
+          document.addEventListener("click", function (event) {
+            if (!topbar.classList.contains("is-open")) return;
+            if (topbar.contains(event.target)) return;
+            if (mobileDrawer && mobileDrawer.contains(event.target)) return;
+            closeMenu();
+          });
+          document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") closeMenu();
+          });
+          window.addEventListener("resize", function () {
+            if (window.innerWidth > 980) closeMenu();
+          });
+        }
         var whatsappNumber = "917676303209";
         // Paste your Google Apps Script Web App /exec URL here.
         // Do not paste the normal Google Sheet edit link.
@@ -2723,8 +3033,7 @@
         // Paste a LocationIQ or Geoapify key here to enable address autocomplete.
         var LOCATIONIQ_API_KEY = "";
         var GEOAPIFY_API_KEY = "";
-        var SCROLL_FILM_VIDEO_SRC =
-          "https://assets.mixkit.co/videos/42729/42729-720.mp4";
+        var SCROLL_FILM_VIDEO_SRC = "";
         var SCROLL_FILM_START = 0.14;
         var SCROLL_FILM_END = 0.78;
         var reduceMotion = window.matchMedia(
@@ -2905,13 +3214,13 @@
 
         function openWhatsAppWithForm(formData) {
           var message = [
-            "Hi Aeria, I want a free balcony check.",
+            "Hi Aeria, I want to upgrade my balcony or open space.",
             "",
             "Name: " + (formData.get("name") || ""),
             "Mobile: " + (formData.get("mobile") || ""),
             "Society: " + (formData.get("address") || ""),
             "Pincode: " + (formData.get("pincode") || ""),
-            "Problem type: " + (formData.get("problem_type") || ""),
+            "First improvement: " + (formData.get("problem_type") || ""),
           ].join("\n");
           window.open(
             "https://wa.me/" +
@@ -3399,7 +3708,15 @@
               delay: 0.25,
               onComplete: hidePreloader,
             })
-            .from(".topbar", { y: -28, opacity: 0, duration: 0.75 }, "-=0.25")
+            .from(
+              ".topbar",
+              {
+                opacity: 0,
+                duration: 0.6,
+                clearProps: "opacity,transform,translate,rotate,scale",
+              },
+              "-=0.25",
+            )
             .from(".hero-media img", { scale: 1.18, duration: 1.8 }, "-=0.7")
             .from(
               ".hero-reveal",
@@ -3516,7 +3833,9 @@
           });
 
           navLinks.forEach(function (link) {
-            var target = document.querySelector(link.getAttribute("href"));
+            var href = link.getAttribute("href");
+            if (!href || href.charAt(0) !== "#") return;
+            var target = document.querySelector(href);
             if (!target) return;
             ScrollTrigger.create({
               trigger: target,
