@@ -120,11 +120,9 @@ These files live in `assets/images/aeria/`.
 - **Photo page:** https://unsplash.com/photos/a-balcony-with-a-potted-plant-on-it-Iokni0j40NM
 - **Description:** Singapore balcony detail with potted plants and apartment view.
 
-## `bird-protection-balcony.jpg`
-- **Photographer:** Danny Greenberg
-- **Source:** Unsplash
-- **Photo page:** https://unsplash.com/photos/a-pigeon-perches-on-a-balustrade-NxXvCGGAR60
-- **Description:** Pigeon perched on a balcony railing, used for the Bird Protection service card.
+## `pigeon-net-closeup.jpg`
+- **Source:** User-provided reference image
+- **Description:** Close-up pigeon netting installed across a balcony opening, used for the Bird Protection service card.
 
 ## `hanoi-balcony-lighting.jpg`
 - **Photographer:** Chris Do
@@ -161,6 +159,10 @@ These files live in `assets/images/aeria/`.
 - **Source:** Pexels
 - **Photo page:** https://www.pexels.com/photo/sliding-doors-leading-to-balcony-15818727/
 - **Description:** Sliding doors leading to a semi-open balcony deck.
+
+## `pleated-sliding-mosquito-mesh.jpg`
+- **Source:** User-provided reference image
+- **Description:** Pleated sliding mosquito mesh fitted across a balcony opening, used for the Mosquito Mesh service card.
 
 ## `hcmc-balcony-plants.jpg`
 - **Photographer:** Tuan Vy

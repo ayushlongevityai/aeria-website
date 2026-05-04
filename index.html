@@ -1185,9 +1185,22 @@
         pointer-events: none;
       }
 
+      .solution-visual.is-pigeon-net img {
+        object-position: 66% 70%;
+        filter: none;
+      }
+
+      .solution-visual.is-pigeon-net::after {
+        display: none;
+      }
+
       .solution-card:hover .solution-visual img {
         transform: scale(1.05);
         filter: saturate(1.04) contrast(1.04);
+      }
+
+      .solution-card:hover .solution-visual.is-pigeon-net img {
+        filter: none;
       }
 
       .solution-card:hover::before {
@@ -2551,16 +2564,16 @@
 
             <div class="solutions-grid">
               <article class="solution-card reveal">
-                <div class="solution-visual">
+                <div class="solution-visual is-pigeon-net">
                   <img
-                    src="assets/images/aeria/bird-protection-balcony.jpg"
+                    src="assets/images/aeria/pigeon-net-closeup.jpg"
                     srcset="
-                      assets/images/aeria/bird-protection-balcony-p-500.jpg 500w,
-                      assets/images/aeria/bird-protection-balcony-p-800.jpg 800w,
-                      assets/images/aeria/bird-protection-balcony.jpg       1600w
+                      assets/images/aeria/pigeon-net-closeup-p-500.jpg 500w,
+                      assets/images/aeria/pigeon-net-closeup-p-800.jpg 800w,
+                      assets/images/aeria/pigeon-net-closeup.jpg       1268w
                     "
                     sizes="(max-width: 767px) calc(100vw - 40px), 20vw"
-                    alt="A pigeon perched on a balcony railing"
+                    alt="Close-up of pigeon netting installed on a balcony"
                   />
                 </div>
                 <div>
@@ -2598,8 +2611,13 @@
               <article class="solution-card reveal">
                 <div class="solution-visual">
                   <img
-                    src="assets/images/aeria/sliding-mesh-door-reference.jpg"
-                    alt="Sliding balcony doors opening to an outdoor deck"
+                    src="assets/images/aeria/pleated-sliding-mosquito-mesh.jpg"
+                    srcset="
+                      assets/images/aeria/pleated-sliding-mosquito-mesh-p-500.jpg 500w,
+                      assets/images/aeria/pleated-sliding-mosquito-mesh.jpg       552w
+                    "
+                    sizes="(max-width: 767px) calc(100vw - 40px), 20vw"
+                    alt="Pleated sliding mosquito mesh fitted across a balcony opening"
                   />
                 </div>
                 <div>
@@ -3045,6 +3063,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <script>
       (function () {
         var backTop = document.querySelector(".back-top");
